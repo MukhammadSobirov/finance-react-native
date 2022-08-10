@@ -1,20 +1,23 @@
-import { ImageBackground, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.formContainer}>
-        <Text>Get started with Finance app</Text>
-        <TextInput placeholder="email" style={styles.input} accessibilityHint="email" accessibilityLabel="email" />
-        <TextInput placeholder="password" style={styles.input} />
-        <Pressable
-          style={({ pressed }) => (pressed ? styles.pressedItem : styles.button)}
-          android_ripple={{ color: "tortoise" }}
-        >
-          <Text style={styles.btnText}>login</Text>
-        </Pressable>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <View style={styles.formContainer}>
+          <Text style={styles.title}>Get started with Finance app</Text>
+          <TextInput placeholder="email" style={styles.input} accessibilityHint="email" accessibilityLabel="email" />
+          <TextInput placeholder="password" style={styles.input} />
+          <Pressable
+            style={({ pressed }) => (pressed ? styles.pressedItem : styles.button)}
+            android_ripple={{ color: "tortoise" }}
+          >
+            <Text style={styles.btnText}>login</Text>
+          </Pressable>
+        </View>
       </View>
-    </View>
+    </NavigationContainer>
   );
 };
 
@@ -28,6 +31,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
+  title: {
+    fontSize: 18,
+    marginBottom: 10,
+    color: "#59CE8F",
+    textAlign: "center",
+    fontWeight: "700",
+    width: 300,
+  },
+
   formContainer: {
     display: "flex",
     flexDirection: "column",
@@ -38,14 +50,14 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderRadius: 5,
-    width: 280,
+    width: 300,
     height: 50,
     paddingLeft: 10,
   },
 
   button: {
     marginTop: 5,
-    width: 280,
+    width: 300,
     height: 40,
     backgroundColor: "#59CE8F",
     alignItems: "center",
@@ -61,7 +73,7 @@ const styles = StyleSheet.create({
   pressedItem: {
     backgroundColor: "#3FA796",
     marginTop: 5,
-    width: 280,
+    width: 300,
     height: 40,
     alignItems: "center",
     justifyContent: "center",
