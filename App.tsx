@@ -1,81 +1,19 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./src/screens/Home";
+import Login from "./src/screens/Login";
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        <View style={styles.formContainer}>
-          <Text style={styles.title}>Get started with Finance app</Text>
-          <TextInput placeholder="email" style={styles.input} accessibilityHint="email" accessibilityLabel="email" />
-          <TextInput placeholder="password" style={styles.input} />
-          <Pressable
-            style={({ pressed }) => (pressed ? styles.pressedItem : styles.button)}
-            android_ripple={{ color: "tortoise" }}
-          >
-            <Text style={styles.btnText}>login</Text>
-          </Pressable>
-        </View>
-      </View>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={Home} options={{ title: "Overview" }} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    backgroundColor: "#E8F9FD",
-    justifyContent: "center",
-  },
-
-  title: {
-    fontSize: 18,
-    marginBottom: 10,
-    color: "#59CE8F",
-    textAlign: "center",
-    fontWeight: "700",
-    width: 300,
-  },
-
-  formContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-evenly",
-    height: 200,
-  },
-
-  input: {
-    borderWidth: 1,
-    borderRadius: 5,
-    width: 300,
-    height: 50,
-    paddingLeft: 10,
-  },
-
-  button: {
-    marginTop: 5,
-    width: 300,
-    height: 40,
-    backgroundColor: "#59CE8F",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  btnText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "600",
-  },
-
-  pressedItem: {
-    backgroundColor: "#3FA796",
-    marginTop: 5,
-    width: 300,
-    height: 40,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
