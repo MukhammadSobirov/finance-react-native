@@ -1,8 +1,13 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+import FormModal from "../components/FormModal";
 
 const Home = () => {
-  return <Text>Home</Text>;
+  return (
+    <View>
+      <FormModal />
+    </View>
+  );
 };
 
 export default Home;
