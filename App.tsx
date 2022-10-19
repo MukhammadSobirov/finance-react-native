@@ -1,5 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import Home from "./src/screens/Home";
 import Login from "./src/screens/Login";
